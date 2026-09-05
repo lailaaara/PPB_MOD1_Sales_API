@@ -9,6 +9,10 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 
+app.get("/", (req, res) => {
+  res.send("Sales API is running");
+});
+
 app.use("/api/categories", categoryRoutes);
 app.use("/api/products", productRoutes);
 app.use("/api/customers", customerRoutes);
