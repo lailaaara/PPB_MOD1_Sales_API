@@ -27,13 +27,6 @@ export const ProductModel = {
   },
 
   async create(payload) {
-    if (payload.price !== undefined && payload.price < 0) {
-      throw new Error("Harga tidak boleh kurang dari 0");
-    }
-    if (payload.stock !== undefined && payload.stock < 0) {
-      throw new Error("Stok tidak boleh kurang dari 0");
-    }
-
     const { data, error } = await supabase
       .from("products")
       .insert([payload])
